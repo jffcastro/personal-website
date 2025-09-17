@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Castro</title>
+    <style>
+        :root {
+            --bg: #f5f5f5;
+            --text: #3a3a3a;
+            --text-muted: #6a6a6a;
+            --border: #d0d0d0;
+            --accent: #6b8ce8;
+        }
+
+        [data-theme="dark"] {
+            --bg: #1a1a1a;
+            --text: #e0e0e0;
+            --text-muted: #999999;
+            --border: #333333;
+            --accent: #4dabf7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.5;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.25rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .theme-toggle {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .theme-toggle:hover {
+            background: var(--border);
+        }
+
+        .github-link {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .github-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .github-link:hover {
+            background: var(--border);
+            color: var(--accent);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin: 0;
+            flex: 1;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin: 0.25rem 0 2rem 0;
+            text-align: center;
+        }
+
+        .intro-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 2rem 0 0.75rem 0;
+            color: var(--text-muted);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .timeline {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .timeline li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .timeline-year {
+            font-weight: 600;
+            color: var(--accent);
+            margin-right: 1rem;
+            min-width: 60px;
+            font-size: 0.95rem; /* Slightly larger */
+        }
+
+        .timeline-event {
+            color: var(--text);
+        }
+
+        .work-item {
+            text-align: left;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .work-item:last-child {
+            border-bottom: none;
+        }
+
+        .work-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .work-company {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-period {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-description {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        li:before {
+            content: "• ";
+            color: var(--text-muted);
+        }
+
+        .contact {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact a {
+            margin: 0 1rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+
+            .header-row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-row">
+        <a href="https://github.com/jffcastro" class="github-link">
+            <svg class="github-icon" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+        </a>
+        <h1>João Castro</h1>
+        <button class="theme-toggle" onclick="toggleTheme()">○</button>
+    </div>
+    <p class="subtitle">Backend Software Engineer</p>
+    <p class="intro-text">I build software that works, or try to. Focused on clean code, simple solutions, and getting things done, always learning new things.</p>
+
+    <h2>Work Experience</h2>
+    <div class="work-item">
+        <div class="work-title">Associate Software Engineer</div>
+        <div class="work-company">Blip.pt</div>
+        <div class="work-period">March 2025 - Present</div>
+        <div class="work-description">
+            Built a critical event-sourcing service with Spring Boot, Kotlin, and Kafka that replaced an older legacy system.
+            Enhanced observability with Micrometer metrics and SignalFx integration. 
+            Mentored new team members and migrated new brands to our platforms.
+        </div>
+    </div>
+
+    <div class="work-item">
+        <div class="work-title">Software Engineer Trainee</div>
+        <div class="work-company">Blip.pt</div>
+        <div class="work-period">Jun 2024 - Mar 2025</div>
+        <div class="work-description">
+            Maintained content services for Betfair, PaddyPower, and Skybet platforms. 
+            Implemented Kafka cluster communication for a critical service, reducing sync incidents.
+            Added in-play and pre-match statistics to the platform, improving UX.
+            Designed Kafka integration with Avro and Schema Registry for new backend services.
+        </div>
+    </div>
+
+    <div class="work-item">
+        <div class="work-title">Software Engineer Intern</div>
+        <div class="work-company">Blip.pt</div>
+        <div class="work-period">Feb 2023 - Jun 2024</div>
+        <div class="work-description">
+            Developed a PoC in Kotlin and Spring Boot to upgrade a production service using Java 8 and a Spring framework fork.
+            Optimized caching by migrating from Google Guava to Redis, greatly improving the number of cache hits.
+            Replaced Apache Lucene with Elasticsearch and eliminated Hazelcast overhead, reducing the number of sync incidents.
+        </div>
+    </div>
+
+    <h2>Bio</h2>
+    <ul class="timeline">
+        <li><span class="timeline-year">2000</span><span class="timeline-event">Born in Porto, Portugal</span></li>
+        <li><span class="timeline-year">2023</span><span class="timeline-event">Started working at Blip.pt as a Backend Software Engineer</span></li>
+        <li><span class="timeline-year">2024</span><span class="timeline-event">Concluded my BEng in Software Engineering at ISEP</span></li>
+    </ul>
+
+    <h2>Projects</h2>
+    <ul>
+        <li><a href="https://github.com/jffcastro/AssetFlow">AssetFlow</a> - Personal project to manage my assets and investments</li>
+    </ul>
+
+    <h2>Skills</h2>
+    <p style="text-align: center;">Java, Kotlin, Spring Boot, Kafka, Elasticsearch, Docker</p>
+
+    <h2>Contact</h2>
+    <div class="contact">
+        <a href="mailto:joaocastro.dev.1dur7@silomails.com">Email</a>
+        <a href="https://linkedin.com/in/jffcastro">LinkedIn</a>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const theme = html.getAttribute('data-theme');
+            const newTheme = theme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = newTheme === 'dark' ? '●' : '○';
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('.theme-toggle').textContent = savedTheme === 'dark' ? '●' : '○';
+    </script>
+</body>
+</html>
